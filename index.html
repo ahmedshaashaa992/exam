@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="ar">
-  <head>
-    <meta charset="UTF-8" />
-    <title>مشروعي الأول</title>
-  </head>
-  <body>
-    <h1>أهلاً بك في أول مشروع </h1>
-    
-    <button id="myBtn">اضغطني</button>
-    <p id="result"></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>صفحتي مع أزرار</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 id="header">مرحباً بك في مشروعي!</h1>
+  
 
-    <script type="module" src="/main.js"></script>
-    
-  </body>
+  <button id="changeTextBtn">غير النص</button>
+  <button id="openPageBtn">افتح صفحة google  جديدة</button>
+
+  <script>
+    const header = document.getElementById('header');
+    const changeTextBtn = document.getElementById('changeTextBtn');
+    const openPageBtn = document.getElementById('openPageBtn');
+
+    changeTextBtn.addEventListener('click', () => {
+      header.textContent = 'تم تغيير النص!';
+    });
+
+    openPageBtn.addEventListener('click', () => {
+      window.open('https://www.google.com', '_blank');
+    });
+  </script>
+</body>
 </html>
