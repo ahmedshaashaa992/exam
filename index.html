@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloned Page - Simple Layout</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #52621141;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+/* العنوان */
+h1, h2 {
+  text-align: center;
+  color: #1238639c;
+}
+
+
+/* الحاوية الرئيسية */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #1b4b6755;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 3px 7px rgba(17, 120, 134, 0.39);
+}
+
+/* جدول أنيق */
+table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 7px;
+}
+
+table thead {
+  background-color: #8f8a078a;
+  color: rgba(260, 260, 260, 0.260);
+}
+
+table th, table td {
+  padding: 10px 10px;
+  text-align: left;
+  border-bottom: 1px solid #0c5c657a;
+}
+
+table tr:hover {
+  background-color: #f1f1f163;
+}
+
+/* زر أنيق */
+button {
+  background-color: #cd9d00e5;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* حقل الإدخال */
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* رسالة أو تنبيه */
+.alert {
+  padding: 10px;
+  background-color: #99781448;
+  color: rgba(255, 255, 255, 0.477);
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+
+button {
+  background-color: #77510c6c;         /* لون الخلفية */
+  color: white;                      /* لون النص */
+  padding: 12px 20px;                /* الحشو (داخل الزر) */
+  border: 2px solid #b9732953;         /* حدود الزر */
+  border-radius: 8px;                /* زوايا مستديرة */
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;                      /* الهوامش (خارجية) */
+  transition: all 0.3s ease;         /* حركة ناعمة */
+   box-shadow: 0 4px 10px rgba(126, 95, 29, 0.314);  /* ظل */
+}
+
+/* حركة عند المرور بالماوس */
+button:hover {
+  background-color: #43370e4b;         /* تغيير اللون */
+  transform: scale(1.05);            /* تكبير الزر قليلاً */
+  box-shadow: 0 4px 10px rgba(29, 76, 126, 0.489);  /* ظل */
+}
+
+/* مثال لحقل إدخال */
+input {
+  padding: 20px;                     /* الحشو */
+  margin-bottom: 30px;               /* هامش سفلي */
+  border: 1px solid #472f0160;            /* حدود خفيفة */
+  border-radius: 10px;
+  width: 50%;
+  box-sizing: border-box;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #6f6311a9;             /* تغيير الحدود عند الكتابة */
+  outline: none;
+}
+
+center-box {
+  display: flex;
+  flex-direction: column;     /* ترتيب العناصر فوق بعض */
+  justify-content: center;    /* وسط عمودي */
+  align-items: center;        /* وسط أفقي */
+  height: 100vh;              /* ارتفاع الشاشة كاملة */
+  background-color: #f9f8f4b5;
+  
+}
+
+
+
+
+button:hover {
+  background-color: #b9762945;
+  transform: scale(1.05);
+}
+
+
+
+/* رابط تسجيل الدخول */
+.login-link {
+  margin-top: 20px;
+  color:  #6f6311a9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #a5711d47;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Page</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Subheading</h2>
+      <p>This is a sample paragraph to show the idea of the page. You can edit this text as you like.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - All rights reserved</p>
+  </footer>
+</body>
+</html>
