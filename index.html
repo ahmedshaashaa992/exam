@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #e0ffff; /* Light aqua background */
+            color: #004d4d; /* Dark teal text */
+        }
+
+        h1 {
+            color: #008b8b; /* Dark cyan */
+        }
+
+        #timer {
+            font-size: 64px;
+            margin: 30px;
+            color: #006666; /* Deep aqua */
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #00cccc; /* Aqua */
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #009999; /* Darker aqua on hover */
+        }
+
+        input {
+            font-size: 22px;
+            padding: 10px;
+            margin: 20px;
+            border: 2px solid #00cccc;
+            border-radius: 6px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Min-Timer</h1>
+    <h2 id="timer"></h2>
+   <div id="controls">
+        <input type="number" id="timerInput" placeholder="Enter Timer in Minutes">
+        <br>
+    </div>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+
+ <script>
+    const timerDisplay = document.getElementById('timer');
+    let totalTimeSec = 0;
+    let interval = null;
+    let isPaused = false;
+
+    function updateDisplay(minutes, secs) {
+      const mins = String(minutes);
+      const sec = String(secs).padStart(2, '0');
+      timerDisplay.textContent = `${mins}:${sec}`;
+
+      // Dynamic input update
+      const input = document.getElementById('timerInput');
+      input.value = `${mins}:${sec}`;
+    }
+
+    function counter() {
+      interval = setInterval(() => {
+        const min = Math.floor(totalTimeSec / 60);
+        const sec = totalTimeSec % 60;
+
+        updateDisplay(min, sec);
+
+        totalTimeSec--;
+
+        if (totalTimeSec < 0) {
+          clearInterval(interval);
+          interval = null;
+          isPaused = false;
+          document.getElementById('controls').style.display = "block";
+          document.getElementById('timerInput').disabled = false;
+        }
+      }, 1000);
+    }
+
+    function startTimer() {
+      if (!interval) {
+        const input = document.getElementById('timerInput');
+
+        if (!isPaused) {
+          let value = input.value;
+
+          // Parse MM or MM:SS input
+          if (value.includes(':')) {
+            const [m, s] = value.split(':').map(Number);
+            totalTimeSec = m * 60 + s;
+          } else {
+            totalTimeSec = parseInt(value) * 60;
+          }
+
+          document.getElementById('controls').style.display = "none";
+        }
+
+        input.disabled = true;
+        counter();
+      }
+    }
+
+    function pauseTimer() {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+        isPaused = true;
+        document.getElementById('controls').style.display = "block";
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(interval);
+      interval = null;
+      isPaused = false;
+      totalTimeSec = 0;
+      updateDisplay(0, 0);
+      const input = document.getElementById('timerInput');
+      input.disabled = false;
+      input.value = '';
+      document.getElementById('controls').style.display = "block";
+    }
+
+    // Initial display
+    updateDisplay(0, 0);
+    
+  </script>
+
+</body>
+</html>
